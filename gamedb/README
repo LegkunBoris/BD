@@ -1,0 +1,150 @@
+--Создание таблиц
+--таблица статусов сервером(online,offline,maintence)
+CREATE TABLE serverStatus(
+id serial PRIMARY KEY,
+status varchar(20) NOT NULL);
+
+--таблица серверов(id,нзавание,статус сервера,расположение сервера,ip сервера)
+CREATE TABLE servers(
+id serial PRIMARY KEY,
+name varchar(400) NOT NULL,
+status int REFERENCES serverstatus(id),
+location varchar(80),
+ip inet NOT NULL);
+
+--таблица рангов(справчоник)
+CREATE TABLE ranks(
+id serial PRIMARY KEY,
+rank varchar(20) NOT NULL);
+
+--таблица игроков
+CREATE TABLE players(
+id serial PRIMARY KEY,
+name varchar(80) NOT NULL,
+server int REFERENCES servers(id),
+status int REFERENCES status(id),
+rank int REFERENCES ranks(id));
+
+--таблица состояний игры
+CREATE TABLE gstates(
+id serial PRIMARY KEY,
+state varchar(20) NOT NULL);
+
+--таблица игр(id игры,имя игрока,время начала игры,время конца игры)
+CREATE TABLE GAMES(
+game_id serial PRIMARY KEY,
+player_id int REFERENCES players(id),
+s_time timestamp NOT NULL,
+e_time timestamp NOT NULL,
+win_team int REFERENCES gstates(id));
+
+--таблица героев
+CREATE TABLE champions(
+id serial PRIMARY KEY,
+name varchar(40) NOT NULL);
+
+--таблица команды
+CREATE TABLE party(
+id serial PRIMARY KEY,
+team varchar NOT NULL);
+--таблица игр
+--в игре принимают участие 10 игроков, по 5 в каждой комане,
+--у игроков есть свойства:id,герой за которого играет игрок,
+--команда в которой состоит игрок,количетсво убийств,смертей,
+--убитых монстров,количество полученого золота
+--s_time время начала игры
+--e_time время конца игры
+--win_team победивашая команда
+CREATE TABLE GAMES(
+game_id serial PRIMARY KEY,
+p1_id int REFERENCES players(id),
+p1_champ int REFERENCES champions(id),
+p1_team int REFERENCES teams(id),
+p1_kills int NOT NULL,
+p1_deaths int NOT NULL, 
+p1_minions int NOT NULL,
+p1_gold int NOT NULL,
+p2_id int REFERENCES players(id),
+p2_champ int REFERENCES champions(id),
+p2_team int REFERENCES teams(id),
+p2_kills int NOT NULL,
+p2_deaths int NOT NULL, 
+p2_minions int NOT NULL,
+p2_gold int NOT NULL,
+p3_id int REFERENCES players(id),
+p3_champ int REFERENCES champions(id),
+p3_team int REFERENCES teams(id),
+p3_kills int NOT NULL,
+p3_deaths int NOT NULL, 
+p3_minions int NOT NULL,
+p3_gold int NOT NULL,
+p4_id int REFERENCES players(id),
+p4_champ int REFERENCES champions(id),
+p4_team int REFERENCES teams(id),
+p4_kills int NOT NULL,
+p4_deaths int NOT NULL, 
+p4_minions int NOT NULL,
+p4_gold int NOT NULL,
+p5_id int REFERENCES players(id),
+p5_champ int REFERENCES champions(id),
+p5_team int REFERENCES teams(id),
+p5_kills int NOT NULL,
+p5_deaths int NOT NULL, 
+p5_minions int NOT NULL,
+p5_gold int NOT NULL,
+p6_id int REFERENCES players(id),
+p6_champ int REFERENCES champions(id),
+p6_team int REFERENCES teams(id),
+p6_kills int NOT NULL,
+p6_deaths int NOT NULL, 
+p6_minions int NOT NULL,
+p6_gold int NOT NULL,
+p7_id int REFERENCES players(id),
+p7_champ int REFERENCES champions(id),
+p7_team int REFERENCES teams(id),
+p7_kills int NOT NULL,
+p7_deaths int NOT NULL, 
+p7_minions int NOT NULL,
+p7_gold int NOT NULL,
+p8_id int REFERENCES players(id),
+p8_champ int REFERENCES champions(id),
+p8_team int REFERENCES teams(id),
+p8_kills int NOT NULL,
+p8_deaths int NOT NULL, 
+p8_minions int NOT NULL,
+p8_gold int NOT NULL,
+p9_id int REFERENCES players(id),
+p9_champ int REFERENCES champions(id),
+p9_team int REFERENCES teams(id),
+p9_kills int NOT NULL,
+p9_deaths int NOT NULL, 
+p9_minions int NOT NULL,
+p9_gold int NOT NULL,
+p10_id int REFERENCES players(id),
+p10_champ int REFERENCES champions(id),
+p10_team int REFERENCES teams(id),
+p10_kills int NOT NULL,
+p10_deaths int NOT NULL, 
+p10_minions int NOT NULL,
+p10_gold int NOT NULL,
+s_time timestamp NOT NULL,
+e_time timestamp NOT NULL,
+win_team int REFERENCES gstates(id));
+
+--Заполнение таблиц данными
+COPY status FROM '/home/dango/gamedb/status.csv' DELIMITERS ',';
+COPY ranks FROM '/home/dango/gamedb/ranks.csv' DELIMITERS ',';
+COPY servers FROM '/home/dango/gamedb/servers.csv' DELIMITERS ',';
+COPY players FROM '/home/dango/gamedb/players.csv' DELIMITERS ',';
+COPY games FROM '/home/dango/gamedb/games.csv' DELIMITERS ',';
+COPY teams FROM '/home/dango/gamedb/teams.csv' DELIMITERS ',';
+COPY gstates FROM '/home/dango/gamedb/gstates.csv' DELIMITERS ',';
+COPY champions FROM '/home/dango/gamedb/champions.csv' DELIMITERS ',';
+--COPY(SELECT * FROM status) TO '/home/dango/gamedb/status.csv' WITH DELIMITER ',';
+--COPY(SELECT * FROM ranks) TO '/home/dango/gamedb/ranks.csv' WITH DELIMITER ',';
+--COPY(SELECT * FROM servers) TO '/home/dango/gamedb/servers.csv' WITH DELIMITER ',';
+--COPY(SELECT * FROM players) TO '/home/dango/gamedb/players.csv' WITH DELIMITER ',';
+--COPY(SELECT * FROM games) TO '/home/dango/gamedb/games.csv' WITH DELIMITER ',';
+--COPY(SELECT * FROM teams) TO '/home/dango/gamedb/teams.csv' WITH DELIMITER ',';
+--COPY(SELECT * FROM gstates) TO '/home/dango/gamedb/gstates.csv' WITH DELIMITER ',';
+--COPY(SELECT * FROM champions) TO '/home/dango/gamedb/champions.csv' WITH DELIMITER ',';

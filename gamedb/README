@@ -1,4 +1,4 @@
---Создание таблиц
+﻿--Создание таблиц
 --таблица статусов сервером(online,offline,maintence)
 CREATE TABLE serverStatus(
 id serial PRIMARY KEY,
@@ -132,14 +132,15 @@ e_time timestamp NOT NULL,
 win_team int REFERENCES gstates(id));
 
 --Заполнение таблиц данными
-COPY status FROM '/home/dango/gamedb/status.csv' DELIMITERS ',';
-COPY ranks FROM '/home/dango/gamedb/ranks.csv' DELIMITERS ',';
-COPY servers FROM '/home/dango/gamedb/servers.csv' DELIMITERS ',';
-COPY players FROM '/home/dango/gamedb/players.csv' DELIMITERS ',';
-COPY games FROM '/home/dango/gamedb/games.csv' DELIMITERS ',';
-COPY teams FROM '/home/dango/gamedb/teams.csv' DELIMITERS ',';
-COPY gstates FROM '/home/dango/gamedb/gstates.csv' DELIMITERS ',';
-COPY champions FROM '/home/dango/gamedb/champions.csv' DELIMITERS ',';
+COPY status FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\status.csv' DELIMITERS ',';
+COPY ranks FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\ranks.csv' DELIMITERS ',';
+COPY servers FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\servers.csv' DELIMITERS ',';
+COPY players FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\players.csv' DELIMITERS ',';
+COPY games FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\games.csv' DELIMITERS ',';
+COPY teams FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\teams.csv' DELIMITERS ',';
+COPY gstates FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\gstates.csv' DELIMITERS ',';
+COPY champions FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\champions.csv' DELIMITERS ',';
+
 --COPY(SELECT * FROM status) TO '/home/dango/gamedb/status.csv' WITH DELIMITER ',';
 --COPY(SELECT * FROM ranks) TO '/home/dango/gamedb/ranks.csv' WITH DELIMITER ',';
 --COPY(SELECT * FROM servers) TO '/home/dango/gamedb/servers.csv' WITH DELIMITER ',';

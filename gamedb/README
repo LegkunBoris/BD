@@ -1,6 +1,6 @@
 ﻿--Создание таблиц
 --таблица статусов сервером(online,offline,maintence)
-CREATE TABLE serverStatus(
+CREATE TABLE status(
 id serial PRIMARY KEY,
 status varchar(20) NOT NULL);
 
@@ -8,7 +8,7 @@ status varchar(20) NOT NULL);
 CREATE TABLE servers(
 id serial PRIMARY KEY,
 name varchar(400) NOT NULL,
-status int REFERENCES serverstatus(id),
+status int REFERENCES status(id),
 location varchar(80),
 ip inet NOT NULL);
 
@@ -44,7 +44,7 @@ id serial PRIMARY KEY,
 name varchar(40) NOT NULL);
 
 --таблица команды
-CREATE TABLE party(
+CREATE TABLE teams(
 id serial PRIMARY KEY,
 team varchar NOT NULL);
 --таблица игр

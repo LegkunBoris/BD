@@ -31,9 +31,8 @@ id serial PRIMARY KEY,
 state varchar(20) NOT NULL);
 
 --таблица игр(id игры,имя игрока,время начала игры,время конца игры)
-CREATE TABLE GAMES(
+CREATE TABLE games(
 game_id serial PRIMARY KEY,
-player_id int REFERENCES players(id),
 s_time timestamp NOT NULL,
 e_time timestamp NOT NULL,
 win_team int REFERENCES gstates(id));
@@ -55,7 +54,7 @@ team varchar NOT NULL);
 --s_time время начала игры
 --e_time время конца игры
 --win_team победивашая команда
-CREATE TABLE GAMES(
+CREATE TABLE gamesdescription(
 game_id serial PRIMARY KEY,
 p1_id int REFERENCES players(id),
 p1_champ int REFERENCES champions(id),
@@ -127,19 +126,15 @@ p10_kills int NOT NULL,
 p10_deaths int NOT NULL, 
 p10_minions int NOT NULL,
 p10_gold int NOT NULL,
-s_time timestamp NOT NULL,
-e_time timestamp NOT NULL,
 win_team int REFERENCES gstates(id));
 
 --Заполнение таблиц данными
-COPY status FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\status.csv' DELIMITERS ',';
-COPY ranks FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\ranks.csv' DELIMITERS ',';
-COPY servers FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\servers.csv' DELIMITERS ',';
-COPY players FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\players.csv' DELIMITERS ',';
-COPY games FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\games.csv' DELIMITERS ',';
-COPY teams FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\teams.csv' DELIMITERS ',';
-COPY gstates FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\gstates.csv' DELIMITERS ',';
-COPY champions FROM 'C:\Users\1\Documents\GitHub\BD\gamedb\champions.csv' DELIMITERS ',';
+COPY status FROM 'C:\BD\gamedb\status.csv' DELIMITERS ',';
+COPY ranks FROM 'C:\BD\gamedb\ranks.csv' DELIMITERS ',';
+COPY servers FROM 'C:\BD\gamedb\servers.csv' DELIMITERS ',';
+COPY teams FROM 'C:\BD\gamedb\teams.csv' DELIMITERS ',';
+COPY gstates FROM 'C:\BD\gamedb\gstates.csv' DELIMITERS ',';
+COPY champions FROM 'C:\BD\gamedb\champions.csv' DELIMITERS ',';
 
 --COPY(SELECT * FROM status) TO '/home/dango/gamedb/status.csv' WITH DELIMITER ',';
 --COPY(SELECT * FROM ranks) TO '/home/dango/gamedb/ranks.csv' WITH DELIMITER ',';

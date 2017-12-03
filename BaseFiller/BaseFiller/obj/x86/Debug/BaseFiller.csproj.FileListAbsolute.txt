@@ -1,0 +1,16 @@
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\BaseFiller.exe
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\BaseFiller.pdb
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\mscorlib.dll
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\Npgsql.dll
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\Npgsql.xml
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\ru\mscorlib.resources.dll
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\normidna.nlp
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\normnfc.nlp
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\normnfd.nlp
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\normnfkc.nlp
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\bin\Debug\normnfkd.nlp
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\obj\x86\Debug\BaseFiller.csprojResolveAssemblyReference.cache
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\obj\x86\Debug\BaseFiller.exe
+C:\Users\1\Documents\Projects\BaseFiller\BaseFiller\obj\x86\Debug\BaseFiller.pdb
